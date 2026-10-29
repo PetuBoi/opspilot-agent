@@ -1,0 +1,9 @@
+actual,business,cicd,device,email,identity,m365,network,vpn
+business,3,0,0,0,0,0,0,0
+cicd,0,3,0,0,0,0,0,0
+device,0,0,3,0,0,0,0,0
+email,0,0,0,3,0,0,0,0
+identity,0,0,0,0,3,0,0,0
+m365,0,0,0,0,0,3,0,0
+network,0,0,0,0,0,0,3,0
+vpn,0,0,0,0,0,0,0,3

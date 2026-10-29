@@ -98,6 +98,9 @@ LinearSVC has no probability output; Logistic Regression probabilities are uncal
 
 Authentic revision `e0bbdcb96c84feaa394aaae9c48f8ba4b818451b`, seed 42:
 1,453 cleaned training records (119 overlapping rows quarantined), 657 original test records.
+All 45 original EOL training rows are among those overlaps, leaving **zero clean EOL training
+examples**. Its 58 test records remain in the seven-category metrics and matrix; EOL recall is
+zero. This is an explicit limitation of the decontaminated baseline, not seven-category coverage.
 
 | Model | Accuracy | Macro-F1 | Weighted-F1 |
 |---|---:|---:|---:|

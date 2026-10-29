@@ -19,6 +19,13 @@ then evaluate the full, unchanged 657-row test. Both baselines have their own te
 Do not tune subsequent changes on those reported test metrics. Near-duplicate and multilingual
 generalization risks remain. Batch inference time per ticket is not single-request server latency.
 
+All 45 original EOL training records overlap the test text identities, so cleaned training contains
+no EOL examples. The six-class learned predictor cannot predict that seventh category. All 58 EOL
+test records remain in the original test, contribute zero EOL recall/F1, and appear in the full
+seven-category confusion matrices and machine-readable counts. Metadata explicitly lists training
+labels and categories lost during quarantine. Validation metrics cover the remaining represented
+classes. No performance or coverage claim is made for the unlearnable class under this split policy.
+
 `reports/real/` contains EDA, confusion matrices, per-class precision/recall/F1 JSON, comparison
 CSV and Markdown. No RAG resolution claim is derived from the classification dataset.
 

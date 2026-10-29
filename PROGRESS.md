@@ -18,10 +18,14 @@ classifier baselines ran successfully on pinned revision e0bbdcb96c84feaa394aaae
 LinearSVC: accuracy 0.701674, macro-F1 0.589281; see reports/real for full results.
 Synthetic retrieval/agent CLI evaluation ran on 24 cases. API and Streamlit servers started
 successfully in tools/smoke.py; real HTTP analysis and approval passed. Streamlit AppTest exercised
-the investigation and approval controls. Ruff checks passed. Pytest: 23 passed, 98.67% coverage.
+the investigation and approval controls. Ruff checks passed. Pytest: 24 passed, 98.68% coverage.
 Final review added whitespace-only input rejection and specific synthetic historical root causes
 and resolutions. Windows smoke helpers now launch the underlying interpreter directly so
 temporary server cleanup closes all child-process handles.
+Visual review caught a confusion-matrix label omission after EOL lost all 45 training examples
+to overlap quarantine. The corrected matrix retains all seven labels and sums to all 657 test
+records. EOL's 58 test records have zero recall; missing training coverage is explicit in metadata
+and documentation. A regression test protects this case. Accuracy/F1 values remain unchanged.
 
 GitHub publication was authorized by the user's explicit PetuBoi repository instruction.
 Portable gh is at A:\Projects\.build-cache\gh\gh.exe. Both required auth checks confirmed

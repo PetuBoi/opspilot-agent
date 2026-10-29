@@ -10,7 +10,7 @@
   "citation_validity": 1,
   "unsupported_citation_rate": 0,
   "action_idempotency_rate": 1,
-  "mean_processing_ms": 36.184254166604056,
+  "mean_processing_ms": 37.57348750013989,
   "cases": [
     {
       "query": "VPN certificate expired",
@@ -24,7 +24,7 @@
         "kb-06"
       ],
       "status": "completed",
-      "elapsed_ms": 54.16569999943022
+      "elapsed_ms": 55.49030000111088
     },
     {
       "query": "VPN tunnel timeout",
@@ -38,7 +38,7 @@
         "kb-22"
       ],
       "status": "rejected",
-      "elapsed_ms": 32.27599999991071
+      "elapsed_ms": 44.6607000012591
     },
     {
       "query": "VPN split tunnel DNS",
@@ -52,7 +52,7 @@
         "kb-13"
       ],
       "status": "completed",
-      "elapsed_ms": 40.20999999920605
+      "elapsed_ms": 38.15339999891876
     },
     {
       "query": "MFA enrollment failure",
@@ -63,7 +63,7 @@
         "kb-04"
       ],
       "status": "rejected",
-      "elapsed_ms": 33.0749000004289
+      "elapsed_ms": 40.505300001314026
     },
     {
       "query": "Account locked sign in",
@@ -74,7 +74,7 @@
         "kb-05"
       ],
       "status": "completed",
-      "elapsed_ms": 39.04619999957504
+      "elapsed_ms": 36.777600000277744
     },
     {
       "query": "SSO token expired",
@@ -87,7 +87,7 @@
         "kb-21"
       ],
       "status": "rejected",
-      "elapsed_ms": 32.388599998739664
+      "elapsed_ms": 33.2323999991786
     },
     {
       "query": "Teams meeting audio",
@@ -98,7 +98,7 @@
         "kb-07"
       ],
       "status": "completed",
-      "elapsed_ms": 36.93270000076154
+      "elapsed_ms": 36.72959999857994
     },
     {
       "query": "SharePoint access denied",
@@ -110,7 +110,7 @@
         "kb-14"
       ],
       "status": "rejected",
-      "elapsed_ms": 32.32489999936661
+      "elapsed_ms": 34.1149999985646
     },
     {
       "query": "OneDrive sync conflict",
@@ -121,7 +121,7 @@
         "kb-09"
       ],
       "status": "completed",
-      "elapsed_ms": 37.496099999771104
+      "elapsed_ms": 37.72610000123677
     },
     {
       "query": "Email delivery delayed",
@@ -134,7 +134,7 @@
         "kb-11"
       ],
       "status": "rejected",
-      "elapsed_ms": 32.364099999540485
+      "elapsed_ms": 34.768900000926806
     },
     {
       "query": "Mailbox quota full",
@@ -146,7 +146,7 @@
         "kb-09"
       ],
       "status": "completed",
-      "elapsed_ms": 37.517500000831205
+      "elapsed_ms": 42.006100000435254
     },
     {
       "query": "Email phishing attachment",
@@ -159,7 +159,7 @@
         "kb-11"
       ],
       "status": "rejected",
-      "elapsed_ms": 32.284599999911734
+      "elapsed_ms": 33.16939999967872
     },
     {
       "query": "Internal DNS resolution",
@@ -174,7 +174,7 @@
         "kb-12"
       ],
       "status": "completed",
-      "elapsed_ms": 39.11259999949834
+      "elapsed_ms": 36.755799999809824
     },
     {
       "query": "Office WiFi disconnect",
@@ -185,7 +185,7 @@
         "kb-14"
       ],
       "status": "rejected",
-      "elapsed_ms": 32.848000000740285
+      "elapsed_ms": 34.64660000099684
     },
     {
       "query": "DHCP address exhaustion",
@@ -196,7 +196,7 @@
         "kb-15"
       ],
       "status": "completed",
-      "elapsed_ms": 37.936000000627246
+      "elapsed_ms": 38.030699997761985
     },
     {
       "query": "Laptop disk space",
@@ -208,7 +208,7 @@
         "kb-17"
       ],
       "status": "rejected",
-      "elapsed_ms": 33.781999998609535
+      "elapsed_ms": 35.42389999893203
     },
     {
       "query": "Laptop boot recovery",
@@ -223,7 +223,7 @@
         "kb-20"
       ],
       "status": "completed",
-      "elapsed_ms": 37.93700000096578
+      "elapsed_ms": 38.03890000017418
     },
     {
       "query": "Device update pending",
@@ -238,7 +238,7 @@
         "kb-07"
       ],
       "status": "rejected",
-      "elapsed_ms": 32.45890000107465
+      "elapsed_ms": 34.44770000169228
     },
     {
       "query": "CI runner offline",
@@ -249,7 +249,7 @@
         "kb-19"
       ],
       "status": "completed",
-      "elapsed_ms": 38.12689999904251
+      "elapsed_ms": 38.49809999883291
     },
     {
       "query": "Pipeline artifact missing",
@@ -261,7 +261,7 @@
         "kb-19"
       ],
       "status": "rejected",
-      "elapsed_ms": 32.60990000126185
+      "elapsed_ms": 35.35119999833114
     },
     {
       "query": "Deploy registry authentication",
@@ -272,7 +272,7 @@
         "kb-21"
       ],
       "status": "completed",
-      "elapsed_ms": 39.62940000019444
+      "elapsed_ms": 38.160900001457776
     },
     {
       "query": "ERP invoice timeout",
@@ -284,7 +284,7 @@
         "kb-02"
       ],
       "status": "rejected",
-      "elapsed_ms": 32.10099999887461
+      "elapsed_ms": 34.77460000067367
     },
     {
       "query": "CRM report unavailable",
@@ -295,7 +295,7 @@
         "kb-23"
       ],
       "status": "completed",
-      "elapsed_ms": 38.24659999918367
+      "elapsed_ms": 37.142500001209555
     },
     {
       "query": "Payroll export validation",
@@ -306,7 +306,7 @@
         "kb-24"
       ],
       "status": "rejected",
-      "elapsed_ms": 33.55250000095111
+      "elapsed_ms": 33.15800000200397
     }
   ],
   "limitations": "24 runbook-title queries; no production resolution accuracy claim"

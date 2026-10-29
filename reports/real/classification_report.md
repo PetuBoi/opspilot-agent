@@ -9,3 +9,4 @@ Dataset: it-support. Selection: validation only.
 
 Quarantined 119 overlapping training rows. Test rows: 657.
 Classification only; these metrics do not measure incident resolution quality.
+Categories with no clean training examples: EOL. All original categories remain in held-out metrics and confusion matrices.

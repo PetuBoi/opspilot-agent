@@ -63,6 +63,7 @@ def train_classifier(
 
     train, test, provenance = frames(dataset, external)
     train, test = train.copy(), test.copy()
+    evaluation_labels = sorted(set(train.label) | set(test.label))
     # Text identity only: quarantine published contamination without consulting test labels.
     train["identity"] = train.text.map(preprocess)
     test_identity = set(test.text.map(preprocess))
@@ -112,7 +113,9 @@ def train_classifier(
         start = time.perf_counter()
         predicted = best_pipeline.predict(test.text)
         latency = (time.perf_counter() - start) * 1000 / len(test)
-        report = classification_report(test.label, predicted, output_dict=True, zero_division=0)
+        report = classification_report(
+            test.label, predicted, labels=evaluation_labels, output_dict=True, zero_division=0
+        )
         metrics = {
             "model": name,
             "C": best_c,
@@ -125,9 +128,13 @@ def train_classifier(
         comparisons.append(metrics)
         pipelines[name] = best_pipeline
         (report_dir / f"{name}_report.json").write_text(json.dumps(report, indent=2), "utf-8")
-        labels = sorted(train.label.unique())
+        # Keep categories absent from decontaminated training visible in evaluation.
+        labels = evaluation_labels
         fig, ax = plt.subplots(figsize=(9, 7))
         matrix = confusion_matrix(test.label, predicted, labels=labels)
+        pd.DataFrame(matrix, index=labels, columns=labels).to_csv(
+            report_dir / f"{name}_confusion_matrix.csv", index_label="actual"
+        )
         ax.imshow(matrix, cmap="Blues")
         for (i, j), count in np.ndenumerate(matrix):
             ax.text(j, i, str(count), ha="center", va="center")
@@ -158,6 +165,9 @@ def train_classifier(
         "validation_rows": len(valid_idx),
         "test_rows": len(test),
         "quarantined_train_rows": excluded,
+        "evaluation_labels": evaluation_labels,
+        "trained_labels": sorted(train.label.unique().tolist()),
+        "labels_without_training_examples": sorted(set(evaluation_labels) - set(train.label)),
         "split": "Original test; normalized overlap quarantined; grouped training validation",
         "training_digest": hashlib.sha256("\n".join(sorted(train.identity)).encode()).hexdigest(),
         "features": "NFKC lowercase word TF-IDF, 1-2 grams, 20k max, sublinear TF",
@@ -189,6 +199,11 @@ def train_classifier(
             f"Quarantined {excluded} overlapping training rows. Test rows: {len(test)}.",
             "Classification only; these metrics do not measure incident resolution quality.",
         ]
+    )
+    rows.append(
+        "Categories with no clean training examples: "
+        + (", ".join(metadata["labels_without_training_examples"]) or "none")
+        + ". All original categories remain in held-out metrics and confusion matrices."
     )
     (report_dir / "classification_report.md").write_text("\n".join(rows) + "\n", "utf-8")
     return metadata

@@ -1,3 +1,3 @@
 model,C,validation_macro_f1,accuracy,macro_f1,weighted_f1,mean_batch_inference_ms_per_ticket
-logistic_regression,0.5,1.0,1.0,1.0,1.0,0.02673333331889201
-linear_svc,0.5,1.0,1.0,1.0,1.0,0.027179166636415175
+logistic_regression,0.5,1.0,1.0,1.0,1.0,0.023708333325582014
+linear_svc,0.5,1.0,1.0,1.0,1.0,0.030383333372204408

@@ -1,0 +1,8 @@
+actual,Active Directory,Computer-Services,EOL,Fileservice,O365,Software,Support general
+Active Directory,17,0,0,3,1,3,25
+Computer-Services,0,26,0,1,5,2,7
+EOL,0,0,0,0,0,0,58
+Fileservice,1,0,0,130,2,1,4
+O365,0,1,0,5,59,2,25
+Software,1,1,0,1,6,32,17
+Support general,8,2,0,2,6,6,197
