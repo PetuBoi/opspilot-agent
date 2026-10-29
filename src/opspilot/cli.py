@@ -74,3 +74,29 @@ def train(dataset: str = "it-support") -> None:
     except ValueError as exc:
         typer.echo(str(exc), err=True)
         raise typer.Exit(1) from exc
+
+
+@app.command("evaluate")
+def evaluate(dataset: str = "demo") -> None:
+    """Measure synthetic agent/retrieval or reproduce authentic classifier evaluation."""
+    from opspilot.config import Settings
+    from opspilot.evaluation import evaluate_agent
+
+    if dataset == "demo":
+        typer.echo(evaluate_agent(Settings(), Path("artifacts"), Path("reports/synthetic")))
+    elif dataset == "it-support":
+        train(dataset)
+    else:
+        raise typer.BadParameter("Supported datasets: demo, it-support")
+
+
+@app.command("report")
+def report(dataset: str = "demo") -> None:
+    """Print computed report locations and results; never invent missing metrics."""
+    import json
+
+    if dataset not in {"demo", "it-support"}:
+        raise typer.BadParameter("Supported datasets: demo, it-support")
+    directory = Path("reports") / ("synthetic" if dataset == "demo" else "real")
+    for path in sorted(directory.glob("*summary.json")):
+        typer.echo(f"{path}: {json.loads(path.read_text('utf-8'))}")

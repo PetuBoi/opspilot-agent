@@ -1,0 +1,313 @@
+{
+  "origin": "SYNTHETIC fixture evaluation; no real resolution ground truth",
+  "queries": 24,
+  "top_k": 5,
+  "retrieval_recall_at_k": 1.0,
+  "retrieval_mrr": 1.0,
+  "source_validity": 1,
+  "workflow_completion_rate": 1,
+  "approval_enforcement_rate": 1,
+  "citation_validity": 1,
+  "unsupported_citation_rate": 0,
+  "action_idempotency_rate": 1,
+  "mean_processing_ms": 36.184254166604056,
+  "cases": [
+    {
+      "query": "VPN certificate expired",
+      "relevant": [
+        "kb-01"
+      ],
+      "retrieved": [
+        "kb-01",
+        "kb-03",
+        "kb-02",
+        "kb-06"
+      ],
+      "status": "completed",
+      "elapsed_ms": 54.16569999943022
+    },
+    {
+      "query": "VPN tunnel timeout",
+      "relevant": [
+        "kb-02"
+      ],
+      "retrieved": [
+        "kb-02",
+        "kb-03",
+        "kb-01",
+        "kb-22"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 32.27599999991071
+    },
+    {
+      "query": "VPN split tunnel DNS",
+      "relevant": [
+        "kb-03"
+      ],
+      "retrieved": [
+        "kb-03",
+        "kb-02",
+        "kb-01",
+        "kb-13"
+      ],
+      "status": "completed",
+      "elapsed_ms": 40.20999999920605
+    },
+    {
+      "query": "MFA enrollment failure",
+      "relevant": [
+        "kb-04"
+      ],
+      "retrieved": [
+        "kb-04"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 33.0749000004289
+    },
+    {
+      "query": "Account locked sign in",
+      "relevant": [
+        "kb-05"
+      ],
+      "retrieved": [
+        "kb-05"
+      ],
+      "status": "completed",
+      "elapsed_ms": 39.04619999957504
+    },
+    {
+      "query": "SSO token expired",
+      "relevant": [
+        "kb-06"
+      ],
+      "retrieved": [
+        "kb-06",
+        "kb-01",
+        "kb-21"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 32.388599998739664
+    },
+    {
+      "query": "Teams meeting audio",
+      "relevant": [
+        "kb-07"
+      ],
+      "retrieved": [
+        "kb-07"
+      ],
+      "status": "completed",
+      "elapsed_ms": 36.93270000076154
+    },
+    {
+      "query": "SharePoint access denied",
+      "relevant": [
+        "kb-08"
+      ],
+      "retrieved": [
+        "kb-08",
+        "kb-14"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 32.32489999936661
+    },
+    {
+      "query": "OneDrive sync conflict",
+      "relevant": [
+        "kb-09"
+      ],
+      "retrieved": [
+        "kb-09"
+      ],
+      "status": "completed",
+      "elapsed_ms": 37.496099999771104
+    },
+    {
+      "query": "Email delivery delayed",
+      "relevant": [
+        "kb-10"
+      ],
+      "retrieved": [
+        "kb-10",
+        "kb-12",
+        "kb-11"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 32.364099999540485
+    },
+    {
+      "query": "Mailbox quota full",
+      "relevant": [
+        "kb-11"
+      ],
+      "retrieved": [
+        "kb-11",
+        "kb-09"
+      ],
+      "status": "completed",
+      "elapsed_ms": 37.517500000831205
+    },
+    {
+      "query": "Email phishing attachment",
+      "relevant": [
+        "kb-12"
+      ],
+      "retrieved": [
+        "kb-12",
+        "kb-10",
+        "kb-11"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 32.284599999911734
+    },
+    {
+      "query": "Internal DNS resolution",
+      "relevant": [
+        "kb-13"
+      ],
+      "retrieved": [
+        "kb-13",
+        "kb-03",
+        "kb-04",
+        "kb-20",
+        "kb-12"
+      ],
+      "status": "completed",
+      "elapsed_ms": 39.11259999949834
+    },
+    {
+      "query": "Office WiFi disconnect",
+      "relevant": [
+        "kb-14"
+      ],
+      "retrieved": [
+        "kb-14"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 32.848000000740285
+    },
+    {
+      "query": "DHCP address exhaustion",
+      "relevant": [
+        "kb-15"
+      ],
+      "retrieved": [
+        "kb-15"
+      ],
+      "status": "completed",
+      "elapsed_ms": 37.936000000627246
+    },
+    {
+      "query": "Laptop disk space",
+      "relevant": [
+        "kb-16"
+      ],
+      "retrieved": [
+        "kb-16",
+        "kb-17"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 33.781999998609535
+    },
+    {
+      "query": "Laptop boot recovery",
+      "relevant": [
+        "kb-17"
+      ],
+      "retrieved": [
+        "kb-17",
+        "kb-16",
+        "kb-13",
+        "kb-04",
+        "kb-20"
+      ],
+      "status": "completed",
+      "elapsed_ms": 37.93700000096578
+    },
+    {
+      "query": "Device update pending",
+      "relevant": [
+        "kb-18"
+      ],
+      "retrieved": [
+        "kb-18",
+        "kb-16",
+        "kb-17",
+        "kb-01",
+        "kb-07"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 32.45890000107465
+    },
+    {
+      "query": "CI runner offline",
+      "relevant": [
+        "kb-19"
+      ],
+      "retrieved": [
+        "kb-19"
+      ],
+      "status": "completed",
+      "elapsed_ms": 38.12689999904251
+    },
+    {
+      "query": "Pipeline artifact missing",
+      "relevant": [
+        "kb-20"
+      ],
+      "retrieved": [
+        "kb-20",
+        "kb-19"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 32.60990000126185
+    },
+    {
+      "query": "Deploy registry authentication",
+      "relevant": [
+        "kb-21"
+      ],
+      "retrieved": [
+        "kb-21"
+      ],
+      "status": "completed",
+      "elapsed_ms": 39.62940000019444
+    },
+    {
+      "query": "ERP invoice timeout",
+      "relevant": [
+        "kb-22"
+      ],
+      "retrieved": [
+        "kb-22",
+        "kb-02"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 32.10099999887461
+    },
+    {
+      "query": "CRM report unavailable",
+      "relevant": [
+        "kb-23"
+      ],
+      "retrieved": [
+        "kb-23"
+      ],
+      "status": "completed",
+      "elapsed_ms": 38.24659999918367
+    },
+    {
+      "query": "Payroll export validation",
+      "relevant": [
+        "kb-24"
+      ],
+      "retrieved": [
+        "kb-24"
+      ],
+      "status": "rejected",
+      "elapsed_ms": 33.55250000095111
+    }
+  ],
+  "limitations": "24 runbook-title queries; no production resolution accuracy claim"
+}
