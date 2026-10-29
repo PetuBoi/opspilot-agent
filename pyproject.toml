@@ -35,7 +35,7 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--cov=opspilot --cov-report=term-missing --cov-report=xml"
+addopts = "--cov=opspilot --cov-report=term-missing --cov-report=xml --cov-fail-under=80"
 
 [tool.coverage.run]
 omit = ["*/cli.py"]

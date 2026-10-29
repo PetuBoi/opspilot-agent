@@ -126,5 +126,13 @@ class Store:
                 "INSERT INTO actions VALUES(?,?,?,?,?)",
                 (action_id, key, tool, "completed", json.dumps(result)),
             )
-        self.audit(key, "action_completed", {"action_id": action_id, "tool": tool})
+            db.execute(
+                "INSERT OR IGNORE INTO audit(investigation_id,event,at,details) VALUES(?,?,?,?)",
+                (
+                    key,
+                    "action_completed",
+                    datetime.now(UTC).isoformat(),
+                    json.dumps({"action_id": action_id, "tool": tool}),
+                ),
+            )
         return result

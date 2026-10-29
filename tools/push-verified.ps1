@@ -4,6 +4,10 @@ $expectedOwner = 'PetuBoi'
 $expectedName = 'opspilot-agent'
 $expectedRemote = "https://github.com/$expectedOwner/$expectedName"
 $expectedRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..')).TrimEnd('\', '/')
+# The Codex sandbox owns the checkout; scope Git's ownership exception to this exact root.
+$env:GIT_CONFIG_COUNT = '1'
+$env:GIT_CONFIG_KEY_0 = 'safe.directory'
+$env:GIT_CONFIG_VALUE_0 = $expectedRoot.Replace('\', '/')
 & $GitHubCli auth status
 if ($LASTEXITCODE -ne 0) { throw 'GitHub authentication failed' }
 $account = & $GitHubCli api user --jq .login
