@@ -1,5 +1,7 @@
 """Command line entry point."""
 
+from pathlib import Path
+
 import typer
 
 from opspilot import __version__
@@ -27,6 +29,9 @@ def seed_demo() -> None:
 
     settings = Settings()
     typer.echo(seed(Store(settings.db_path), settings.data_dir / "kb"))
+    from opspilot.classifier import train_classifier
+
+    typer.echo(train_classifier("demo", Path("artifacts/demo"), Path("reports/synthetic")))
 
 
 @app.command("index")
@@ -45,8 +50,6 @@ def index_knowledge() -> None:
 @app.command("download-dataset")
 def download_dataset(source: str = "it-support") -> None:
     """Download pinned authentic classification data and generate EDA."""
-    from pathlib import Path
-
     from opspilot.datasets import download, eda
 
     if source != "it-support":
@@ -55,6 +58,19 @@ def download_dataset(source: str = "it-support") -> None:
         root = Path("data/external/it-support")
         typer.echo(download(root))
         typer.echo(eda(root, Path("reports/real")))
+    except ValueError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+
+
+@app.command("train-classifier")
+def train(dataset: str = "it-support") -> None:
+    """Select TF-IDF baselines on grouped training validation, then evaluate held-out test."""
+    from opspilot.classifier import train_classifier
+
+    kind = "real" if dataset == "it-support" else "synthetic"
+    try:
+        typer.echo(train_classifier(dataset, Path("artifacts") / dataset, Path("reports") / kind))
     except ValueError as exc:
         typer.echo(str(exc), err=True)
         raise typer.Exit(1) from exc

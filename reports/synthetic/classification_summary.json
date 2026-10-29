@@ -1,0 +1,62 @@
+{
+  "dataset": "demo",
+  "provenance": {
+    "origin": "SYNTHETIC",
+    "revision": "demo-v1"
+  },
+  "seed": 42,
+  "sklearn_version": "1.9.1",
+  "trained_at": "2026-10-29T15:16:05.504541+00:00",
+  "selected_model": "logistic_regression",
+  "selection": "training-only grouped validation macro-F1",
+  "train_rows": 96,
+  "validation_rows": 20,
+  "test_rows": 24,
+  "quarantined_train_rows": 0,
+  "split": "Original test; normalized overlap quarantined; grouped training validation",
+  "training_digest": "c0fbaa0d42a63248e74b7efe24eba9aedc74a312be96ebc8135b794198e39e14",
+  "features": "NFKC lowercase word TF-IDF, 1-2 grams, 20k max, sublinear TF",
+  "validation_search": [
+    {
+      "model": "logistic_regression",
+      "C": 0.5,
+      "validation_macro_f1": 1.0
+    },
+    {
+      "model": "logistic_regression",
+      "C": 2.0,
+      "validation_macro_f1": 1.0
+    },
+    {
+      "model": "linear_svc",
+      "C": 0.5,
+      "validation_macro_f1": 1.0
+    },
+    {
+      "model": "linear_svc",
+      "C": 2.0,
+      "validation_macro_f1": 1.0
+    }
+  ],
+  "comparison": [
+    {
+      "model": "logistic_regression",
+      "C": 0.5,
+      "validation_macro_f1": 1.0,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "weighted_f1": 1.0,
+      "mean_batch_inference_ms_per_ticket": 0.02673333331889201
+    },
+    {
+      "model": "linear_svc",
+      "C": 0.5,
+      "validation_macro_f1": 1.0,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "weighted_f1": 1.0,
+      "mean_batch_inference_ms_per_ticket": 0.027179166636415175
+    }
+  ],
+  "limitations": "Exact duplicates controlled; semantic near duplicates may remain"
+}

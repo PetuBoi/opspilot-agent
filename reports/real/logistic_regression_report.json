@@ -1,0 +1,57 @@
+{
+  "Active Directory": {
+    "precision": 1.0,
+    "recall": 0.1836734693877551,
+    "f1-score": 0.3103448275862069,
+    "support": 49.0
+  },
+  "Computer-Services": {
+    "precision": 0.9047619047619048,
+    "recall": 0.4634146341463415,
+    "f1-score": 0.6129032258064516,
+    "support": 41.0
+  },
+  "EOL": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 58.0
+  },
+  "Fileservice": {
+    "precision": 0.9769230769230769,
+    "recall": 0.9202898550724637,
+    "f1-score": 0.9477611940298507,
+    "support": 138.0
+  },
+  "O365": {
+    "precision": 0.7162162162162162,
+    "recall": 0.5760869565217391,
+    "f1-score": 0.6385542168674698,
+    "support": 92.0
+  },
+  "Software": {
+    "precision": 0.6666666666666666,
+    "recall": 0.41379310344827586,
+    "f1-score": 0.5106382978723404,
+    "support": 58.0
+  },
+  "Support general": {
+    "precision": 0.5348837209302325,
+    "recall": 0.9366515837104072,
+    "f1-score": 0.680921052631579,
+    "support": 221.0
+  },
+  "accuracy": 0.6681887366818874,
+  "macro avg": {
+    "precision": 0.6856359407854425,
+    "recall": 0.4991299431838546,
+    "f1-score": 0.5287318306848425,
+    "support": 657.0
+  },
+  "weighted avg": {
+    "precision": 0.6753097162781776,
+    "recall": 0.6681887366818874,
+    "f1-score": 0.6240099474062252,
+    "support": 657.0
+  }
+}
