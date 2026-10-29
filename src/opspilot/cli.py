@@ -40,3 +40,21 @@ def index_knowledge() -> None:
     typer.echo(
         KnowledgeBase(Store(settings.db_path)).index(settings.data_dir / "kb", settings.chunk_size)
     )
+
+
+@app.command("download-dataset")
+def download_dataset(source: str = "it-support") -> None:
+    """Download pinned authentic classification data and generate EDA."""
+    from pathlib import Path
+
+    from opspilot.datasets import download, eda
+
+    if source != "it-support":
+        raise typer.BadParameter("Supported source: it-support")
+    try:
+        root = Path("data/external/it-support")
+        typer.echo(download(root))
+        typer.echo(eda(root, Path("reports/real")))
+    except ValueError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc

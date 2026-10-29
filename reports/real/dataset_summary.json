@@ -1,0 +1,64 @@
+{
+  "provenance": {
+    "source": "https://huggingface.co/datasets/tasksource/it-support-tickets",
+    "original_source": "https://zenodo.org/records/7648117",
+    "revision": "e0bbdcb96c84feaa394aaae9c48f8ba4b818451b",
+    "downloaded_at": "2026-10-29T15:13:49.491612+00:00",
+    "license": "CC BY 4.0",
+    "sha256": {
+      "train.parquet": "4d5ba276d4c4c7b2d0990a408630112df8467c57112173d39c6029b18efccc97",
+      "test.parquet": "988dbef79ea053389d17b32dcb5bccf510112e01356660f30969c0e728e176a8"
+    },
+    "purpose": "classification only; no severity or resolution labels"
+  },
+  "rows": 2229,
+  "splits": {
+    "train": 1572,
+    "test": 657
+  },
+  "categories": [
+    "Active Directory",
+    "Computer-Services",
+    "EOL",
+    "Fileservice",
+    "O365",
+    "Software",
+    "Support general"
+  ],
+  "missing_values": {
+    "text": 0,
+    "label": 0,
+    "split": 0
+  },
+  "duplicate_texts": 745,
+  "cross_split_duplicate_texts": 33,
+  "length": {
+    "count": 2229.0,
+    "mean": 164.11305518169584,
+    "std": 210.05097858417977,
+    "min": 8.0,
+    "25%": 60.0,
+    "50%": 72.0,
+    "75%": 128.0,
+    "max": 1856.0
+  },
+  "languages": "Not estimated: detection is unreliable for short multilingual tickets",
+  "examples": [
+    {
+      "text": "File Share Access - [TICKET ID] - [NAME]. [NAME] ([COMPANY]. [LOCATION])",
+      "label": "Fileservice"
+    },
+    {
+      "text": "File Share Access - [TICKET ID] - [NAME] ([COMPANY]A. [LOCATION])",
+      "label": "Fileservice"
+    },
+    {
+      "text": "[TICKET ID] - A Support Ticket was forwarded to your role  - Leaving Employee - [TICKET ID] - [NAME] ([COMPANY]. [LOCATION])",
+      "label": "Support general"
+    },
+    {
+      "text": "[TICKET ID] - A Support Ticket was forwarded to your role  - check_mk SD Hostalarm: ([LOCATION]-WSUS01) [COMPANY] [SERVER] -[LOCATION]Server - UP -> DOWN",
+      "label": "Support general"
+    }
+  ]
+}
