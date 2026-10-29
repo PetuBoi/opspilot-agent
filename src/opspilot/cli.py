@@ -27,3 +27,16 @@ def seed_demo() -> None:
 
     settings = Settings()
     typer.echo(seed(Store(settings.db_path), settings.data_dir / "kb"))
+
+
+@app.command("index")
+def index_knowledge() -> None:
+    """Atomically replace the lexical index from local Markdown/plain text."""
+    from opspilot.config import Settings
+    from opspilot.retrieval import KnowledgeBase
+    from opspilot.store import Store
+
+    settings = Settings()
+    typer.echo(
+        KnowledgeBase(Store(settings.db_path)).index(settings.data_dir / "kb", settings.chunk_size)
+    )
