@@ -2,7 +2,7 @@
 
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 class Schema(BaseModel):
@@ -15,6 +15,13 @@ class TicketInput(Schema):
     severity: Literal["unknown", "low", "medium", "high", "critical"] = "unknown"
     propose_action: bool = True
     mode: Literal["offline", "live"] = "offline"
+
+    @field_validator("title", "description")
+    @classmethod
+    def meaningful_text(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("Ticket fields must contain non-whitespace text")
+        return value.strip()
 
 
 class Ticket(TicketInput):

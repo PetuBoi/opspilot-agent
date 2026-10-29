@@ -145,6 +145,67 @@ TOPICS = [
 ]
 
 
+RESOLUTIONS = [
+    ("Expired device certificate", "Device team renewed enrollment after ownership verification"),
+    ("Gateway maintenance window", "Network team restored the scheduled gateway pool"),
+    ("Stale split DNS policy", "Network team reapplied the approved resolver policy"),
+    ("Unsupported MFA factor", "Identity team guided enrollment with an approved factor"),
+    ("Cached credentials in a mail client", "Owner updated stale client credentials after review"),
+    ("Device clock drift", "Device team restored time synchronization and refreshed sign-in"),
+    (
+        "Microphone privacy permission disabled",
+        "Employee enabled the approved microphone permission",
+    ),
+    ("Missing site-reader membership", "Site owner approved and applied reader membership"),
+    (
+        "Concurrent edits to an offline file",
+        "Owner reconciled both versions without deleting originals",
+    ),
+    ("Deferred outbound connector queue", "Messaging team recovered the approved connector"),
+    ("Mailbox above retention quota", "Owner archived eligible mail under retention policy"),
+    ("Malicious sender attachment", "Security team quarantined the sample and blocked the sender"),
+    (
+        "Expired internal DNS cache",
+        "Network team corrected the authoritative record under change control",
+    ),
+    ("Access point radio interference", "Network team moved the approved radio channel"),
+    (
+        "Unreclaimed lab DHCP reservations",
+        "Network team reviewed and reclaimed unused reservations",
+    ),
+    ("Oversized local build cache", "Device owner removed approved regenerable cache files"),
+    (
+        "Interrupted operating system update",
+        "Device team repaired startup using approved recovery media",
+    ),
+    ("Maintenance reboot deferred", "Employee completed the scheduled maintenance restart"),
+    (
+        "Runner service stopped after patching",
+        "Platform team restarted the approved runner service",
+    ),
+    (
+        "Artifact retention expired",
+        "Pipeline owner rebuilt the artifact from the pinned source commit",
+    ),
+    (
+        "Expired registry service token",
+        "Platform team rotated the scoped token through secret management",
+    ),
+    (
+        "Invoice query exhausted connection pool",
+        "Business apps team corrected pool limits under review",
+    ),
+    (
+        "Scheduled CRM refresh failed",
+        "Application owner corrected the refresh identity and reran the job",
+    ),
+    (
+        "Payroll export schema mismatch",
+        "Application owner regenerated the export with the approved schema",
+    ),
+]
+
+
 def seed(store: Store, kb_dir: Path) -> dict:
     kb_dir.mkdir(parents=True, exist_ok=True)
     for i, (service, symptom, checks, owner) in enumerate(TOPICS):
@@ -166,6 +227,7 @@ def seed(store: Store, kb_dir: Path) -> dict:
         (kb_dir / f"{doc}-{service}.md").write_text(content, encoding="utf-8")
     for i in range(32):
         service, symptom, checks, owner = TOPICS[i % len(TOPICS)]
+        cause, resolution = RESOLUTIONS[i % len(RESOLUTIONS)]
         ticket = Ticket(
             id=f"DEMO-{i + 1:03d}",
             title=symptom,
@@ -181,7 +243,8 @@ def seed(store: Store, kb_dir: Path) -> dict:
                 "id": f"HIST-{i + 1:03d}",
                 "service": service,
                 "symptom": symptom,
-                "resolution": f"{owner} verified the cause and confirmed recovery under policy.",
+                "root_cause": cause,
+                "resolution": resolution,
                 "origin": "SYNTHETIC",
                 "checks": checks,
             },

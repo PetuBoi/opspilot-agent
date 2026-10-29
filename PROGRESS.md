@@ -18,7 +18,10 @@ classifier baselines ran successfully on pinned revision e0bbdcb96c84feaa394aaae
 LinearSVC: accuracy 0.701674, macro-F1 0.589281; see reports/real for full results.
 Synthetic retrieval/agent CLI evaluation ran on 24 cases. API and Streamlit servers started
 successfully in tools/smoke.py; real HTTP analysis and approval passed. Streamlit AppTest exercised
-the investigation and approval controls. Ruff checks passed. Pytest: 23 passed, 98.66% coverage.
+the investigation and approval controls. Ruff checks passed. Pytest: 23 passed, 98.67% coverage.
+Final review added whitespace-only input rejection and specific synthetic historical root causes
+and resolutions. Windows smoke helpers now launch the underlying interpreter directly so
+temporary server cleanup closes all child-process handles.
 
 GitHub publication was authorized by the user's explicit PetuBoi repository instruction.
 Portable gh is at A:\Projects\.build-cache\gh\gh.exe. Both required auth checks confirmed
@@ -30,7 +33,7 @@ tools/push-verified.ps1 verifies account, directory, root, branch, URL, owner an
 - Docker daemon unavailable: Dockerfile/Compose implemented, build and container runtime unverified.
 - No browser automation installed: no screenshots captured. Streamlit interaction is tested.
 - Paid live provider not invoked; optional summarization is tested with HTTP mocks.
-- Check remote GitHub Actions status after final push; local results are not remote CI claims.
+- Remote CI passed for the packaging milestone; check the final review commit after push.
 - Optional semantic retrieval/RRF, embeddings and production multi-user authentication are not implemented.
 
 Python 3.13.16 is selected through uv; system default Python remains 3.14.2.

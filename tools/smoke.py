@@ -36,6 +36,16 @@ def main() -> None:
         api_port, ui_port = port(), port()
         token = secrets.token_urlsafe(32)
         env = {**os.environ, "OPSPILOT_DATA_DIR": directory, "OPSPILOT_API_TOKEN": token}
+        python = sys.executable
+        if os.name == "nt":
+            # Avoid the venv redirector's extra child so cleanup closes every server handle.
+            python = sys._base_executable
+            env["PYTHONPATH"] = os.pathsep.join(
+                [
+                    str(Path("src").resolve()),
+                    str(Path(sys.prefix) / "Lib" / "site-packages"),
+                ]
+            )
         processes = []
         with (Path(directory) / "servers.log").open("w") as log:
             try:
@@ -48,7 +58,7 @@ def main() -> None:
                 KnowledgeBase(store).index(Path(directory) / "kb")
                 api = subprocess.Popen(
                     [
-                        sys.executable,
+                        python,
                         "-m",
                         "uvicorn",
                         "opspilot.api.app:app",
@@ -84,7 +94,7 @@ def main() -> None:
                     assert approved.json()["status"] == "completed"
                 ui = subprocess.Popen(
                     [
-                        sys.executable,
+                        python,
                         "-m",
                         "streamlit",
                         "run",
@@ -107,7 +117,8 @@ def main() -> None:
                 print("PASS: real HTTP analysis, approval and Streamlit startup")
             finally:
                 for process in reversed(processes):
-                    process.terminate()
+                    if process.poll() is None:
+                        process.terminate()
                     process.wait(timeout=15)
 
 

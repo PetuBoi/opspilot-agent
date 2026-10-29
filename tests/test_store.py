@@ -42,3 +42,5 @@ def test_durable_approval_idempotency_and_rejection(tmp_path):
 def test_input_limits():
     with pytest.raises(ValidationError):
         TicketInput(title="ok", description="x" * 13000)
+    with pytest.raises(ValidationError):
+        TicketInput(title="   ", description="     ")
